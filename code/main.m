@@ -13,15 +13,16 @@ m_limit=4; %limit for parameter m (window size)
 k_limit=0.40; %limit for parameter k (tolerance constant)
 k_start=0.06; %start of k values
 k_increment=0.02; %increment for k values
+limit_n=1602; %number of images this group
 
 %Prepare the feature vector with (qtde_atr) attributes (variations of parameters m and k)
 qtd_atr = floor(k_limit/k_increment)-floor(k_start/k_increment)+1;
 SampEnMF=zeros(1,m_limit*qtd_atr);
-matrix_SampEnMF=zeros(n,m_limit*qtd_atr);
-matrix_metrics=zeros(n,m_limit*4+1);
+matrix_SampEnMF=zeros(limit_n,m_limit*qtd_atr);
+matrix_metrics=zeros(limit_n,m_limit*4+1);
 
 %index image
-for n=1:1602
+for n=1:limit_n
 
   if isfile(strcat('../data/Healthy/Healthy (',num2str(n),').png')) 
       
@@ -173,15 +174,16 @@ m_limit=4; %limit for parameter m (window size)
 k_limit=0.40; %limit for parameter k (tolerance constant)
 k_start=0.06; %start of k values
 k_increment=0.02; %increment for k values
+limit_n=438; %number of images this group
 
 %Prepare the feature vector with 24 attributes (variations of parameters m and k)
 qtd_atr = floor(k_limit/k_increment)-floor(k_start/k_increment)+1;
 SampEnMF=zeros(1,m_limit*qtd_atr); 
-matrix_SampEnMF=zeros(n,m_limit*qtd_atr);
-matrix_metrics=zeros(n,m_limit*4+1);
+matrix_SampEnMF=zeros(limit_n,m_limit*qtd_atr);
+matrix_metrics=zeros(limit_n,m_limit*4+1);
 
 %index image
-for n=1:438
+for n=1:limit_n
 
   if isfile(strcat('../data/Covid19/Covid (',num2str(n),').png'))   
       
