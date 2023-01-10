@@ -130,21 +130,21 @@ parfor z=1:limit
             if C>1 
                 
                   %Consider black background in a maximum of 2% of the window 
-                  qtd_black_janela1 = 0;
-                  qtd_black_janela2 = 0;
+                  qtd_black_window1 = 0;
+                  qtd_black_window2 = 0;
                 
                   for k=1:m
                         for l=1:m 
                             if (img(i+k-1,j+l-1,:)) == -32768
-                                qtd_black_janela1 = qtd_black_janela1 + 1;
+                                qtd_black_window1 = qtd_black_window1 + 1;
                             end
                             if (img(i1+k-1,j1+l-1,:))  == -32768
-                                qtd_black_janela2 = qtd_black_janela2 + 1;
+                                qtd_black_window2 = qtd_black_window2 + 1;
                             end    
                         end       
                   end
                 
-                  if (qtd_black_janela1/(k*l)<=0.02) && (qtd_black_janela2/(k*l)<=0.02)
+                  if (qtd_black_window1/(k*l)<=0.02) && (qtd_black_window2/(k*l)<=0.02)
                       
                     for color=1:C
                         %Finding window baseline value for removal in Fuzzy approach (Equation 2 according [5])
@@ -220,22 +220,22 @@ parfor z=1:limit
                 else
                     
                   %Consider black background in a maximum of 2% of the window 
-                  qtd_black_janela1 = 0;
-                  qtd_black_janela2 = 0;
+                  qtd_black_window1 = 0;
+                  qtd_black_window2 = 0;
                   D1=0;
                 
                   for k=1:m
                         for l=1:m 
                             if (img(i+k-1,j+l-1)) == -32768
-                                qtd_black_janela1 = qtd_black_janela1 + 1;
+                                qtd_black_window1 = qtd_black_window1 + 1;
                             end
                             if (img(i1+k-1,j1+l-1))  == -32768
-                                qtd_black_janela2 = qtd_black_janela2 + 1;
+                                qtd_black_window2 = qtd_black_window2 + 1;
                             end    
                         end       
                   end
                 
-                  if (qtd_black_janela1/(k*l)<=0.02) && (qtd_black_janela2/(k*l)<=0.02)
+                  if (qtd_black_window1/(k*l)<=0.02) && (qtd_black_window2/(k*l)<=0.02)
                     
                       %Finding window baseline value for removal in Fuzzy approach (Equation 2 according [5])
                       u0icinza=mean2(img(i:i+m-1,j:j+m-1));
