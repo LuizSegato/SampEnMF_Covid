@@ -14,19 +14,24 @@ k_limit=0.40; %limit for parameter k (tolerance constant)
 k_start=0.06; %start of k values
 k_increment=0.02; %increment for k values
 
+% Defining the path and the dir for the Healthy class
+class_path = "../data/Healthy/";
+class_dir = dir(class_path);
+n_images = length(class_dir) - 2; % - 2 to not consider the '.' and the ".."
+
 %Prepare the feature vector with (qtde_atr) attributes (variations of parameters m and k)
 qtd_atr = floor(k_limit/k_increment)-floor(k_start/k_increment)+1;
 SampEnMF=zeros(1,m_limit*qtd_atr);
-matrix_SampEnMF=zeros(n,m_limit*qtd_atr);
-matrix_metrics=zeros(n,m_limit*4+1);
+matrix_SampEnMF=zeros(n_images,m_limit*qtd_atr);
+matrix_metrics=zeros(n_images,m_limit*4+1);
 
 %index image
-for n=1:1602
+for n=1:length(class_dir)
 
-  if isfile(strcat('../data/Healthy/Healthy (',num2str(n),').png')) 
+  if endsWith(class_dir(image_index).name, ".png") 
       
     %Input image'
-    image = imread(strcat('../data/Healthy/Healthy (',num2str(n),').png'));
+    image = imread(strcat(class_path, class_dir(image_index).name));
 
     %attribute index
     i=1;
@@ -174,19 +179,24 @@ k_limit=0.40; %limit for parameter k (tolerance constant)
 k_start=0.06; %start of k values
 k_increment=0.02; %increment for k values
 
+% Defining the path and the dir for the Healthy class
+class_path = "../data/Covid19/";
+class_dir = dir(class_path);
+n_images = length(class_dir) - 2; % - 2 to not consider the '.' and the ".."
+
 %Prepare the feature vector with 24 attributes (variations of parameters m and k)
 qtd_atr = floor(k_limit/k_increment)-floor(k_start/k_increment)+1;
 SampEnMF=zeros(1,m_limit*qtd_atr); 
-matrix_SampEnMF=zeros(n,m_limit*qtd_atr);
-matrix_metrics=zeros(n,m_limit*4+1);
+matrix_SampEnMF=zeros(n_images,m_limit*qtd_atr);
+matrix_metrics=zeros(n_images,m_limit*4+1);
 
 %index image
-for n=1:438
+for n=1:length(class_dir)
 
-  if isfile(strcat('../data/Covid19/Covid (',num2str(n),').png'))   
+  if endsWith(class_dir(image_index).name, ".png") 
       
     %Input image
-    image = imread(strcat('../data/Covid19/Covid (',num2str(n),').png'));
+    image = imread(strcat(class_path, class_dir(image_index).name));
 
     %attribute index
     i=1;
