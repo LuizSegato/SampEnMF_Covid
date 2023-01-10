@@ -116,7 +116,7 @@ for n=1:limit_n
                 end
             end
             SampEnMF(i)=SampEnMF_mean/double(sub_amount);
-            fprintf('Value of atrribute %d (m = %d, e = %.2f) of SampEnMF = %.4f for healthy image %d\n',i,m,k,SampEnMF(i),n);
+            fprintf('Value of attribute %d (m = %d, e = %.2f) of SampEnMF = %.4f for healthy image %d\n',i,m,k,SampEnMF(i),n);
         
             %Next attribute
             i=i+1;
@@ -278,7 +278,7 @@ for n=1:limit_n
                 end
             end
             SampEnMF(i)=SampEnMF_mean/double(sub_amount);
-            fprintf('Value of atrribute %d (m = %d, e = %.2f) of SampEnMF = %.4f for covid image %d\n',i,m,k,SampEnMF(i),n);
+            fprintf('Value of attribute %d (m = %d, e = %.2f) of SampEnMF = %.4f for covid image %d\n',i,m,k,SampEnMF(i),n);
         
             %Next attribute
             i=i+1;
