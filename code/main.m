@@ -91,7 +91,7 @@ for n=1:limit_n
                         end
                     end
                 
-                    %Consider backgroung above 90%
+                    %Consider background above 90%
                     if qtd_black/(sub_im_size*sub_im_size)>=0.90 
                         sub_amount=sub_amount-1;
                     else
@@ -253,7 +253,7 @@ for n=1:limit_n
                         end
                     end
                 
-                    %Consider backgroung above 90%
+                    %Consider background above 90%
                     if qtd_black/(sub_im_size*sub_im_size)>=0.90  
                         sub_amount=sub_amount-1;
                     else
